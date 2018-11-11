@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 
 from django.contrib import admin
 
@@ -15,7 +15,9 @@ import hello.views
 # Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
-    path("", hello.views.index, name="index"),
-    path("db/", hello.views.db, name="db"),
-    path("admin/", admin.site.urls),
+    path("duplicates", hello.views.duplicates, name="duplicates"),
+    path("payins", hello.views.payin, name="payins"),
+    path("payouts", hello.views.payout, name="payouts"),
+    path("revenue", hello.views.revenue, name="revenue"),
+    path("transactions/<int:transaction_id>", hello.views.transactions, name="transactions")
 ]
